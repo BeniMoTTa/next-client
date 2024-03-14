@@ -22,7 +22,7 @@ export const Clientes = () => {
           }
         }
       })();
-    }, []);
+    }, [client]);
   return (
     <section className='h-auto py-12'  id='clientes'>
         <div className='flex
