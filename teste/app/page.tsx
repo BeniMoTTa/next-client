@@ -6,11 +6,8 @@ import { Cobrancas } from "./components/Cobrancas";
 import { Comandos } from "./components/Comandos";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
-import { useAuth } from "./hooks/useAuth";
-import ModalClienteCreate from "./components/modal/CreateCliente";
-import { FieldValues } from "react-hook-form";
-import { api } from "./services/api";
 import { AuthProvider } from "./context/AuthContext";
+import { Whatsapp } from "./components/whatsapp/Whatsapp";
 
 
 
@@ -28,6 +25,7 @@ export default function Home() {
     <Clientes/>
     <Cobrancas/>
     <Comandos/>
+    <Whatsapp/>
     <Footer/>
     </AuthProvider>
 
