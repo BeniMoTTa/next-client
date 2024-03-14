@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Card } from './Card'
 import { api } from '../services/api';
 import { clientData } from '../schemas/client.schema';
+import { Empty } from './Empty';
 
 export const Clientes = () => {
 
-
+    const [isEmpty, setIsEmpty] = useState(false)
     const [client, setClient] = useState<clientData[]>([])
     useEffect(() => {
       (async () => {
@@ -22,13 +23,16 @@ export const Clientes = () => {
           }
         }
       })();
-    }, [client]);
+    }, []);
   return (
-    <section className='h-auto py-12'  id='clientes'>
+    <section className='h-auto py-12 '  id='clientes'>
         <div className='flex
          w-full justify-center'>
         <h3 className='text-4xl'>Clientes</h3>
         </div>
+        {isEmpty ? (
+        <Empty /> 
+      ) : (
         <ul className='mt-8 px-5'>
             {client.map((cliente, index) =>{
                 return(
@@ -45,6 +49,7 @@ export const Clientes = () => {
           
            
         </ul>
+      )}
     </section >
   )
 }

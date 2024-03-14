@@ -1,11 +1,8 @@
-
-import { Modal } from "./ModalGen";
-
-import { clientData, clientSchema } from "@/app/schemas/client.schema";
-
 import {  useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
+import { Modal } from "./ModalGen";
+import { clientData, clientSchema } from "@/app/schemas/client.schema";
 
 
 interface ModalClienteProps{
@@ -21,23 +18,16 @@ const ModalClienteCreate = ({toggleModal, clientRegister}: ModalClienteProps) =>
   const {
     register,
     handleSubmit,
-  } = useForm<clientData>({
+  } = useForm({
     resolver: zodResolver(clientSchema),
     mode: "onChange",
   });
   
 
  
-  const onSubmit = (data: clientData) => {
+  const onSubmit = () => {
     console.log("teste")
-    const formData = {
-      id: data.id || 0, 
-      nome: data.nome,
-      email: data.email,
-      endereco: data.endereco,
-      cpf: data.cpf,
-    };
-    clientRegister(formData);
+   
   };
   
 
@@ -80,10 +70,9 @@ const ModalClienteCreate = ({toggleModal, clientRegister}: ModalClienteProps) =>
             type="text"
             register={register("endereco")}
           />
-
           </div>
+        <button>Enviar</button>
     
-        <button type="submit">Enviar</button>
         </form>
         <button
           className="absolute top-[22px] right-[22px] text-whiteFixed "

@@ -11,6 +11,9 @@ const config: Config = {
       backgroundImage: {
        
       },
+      screens:{
+        maxsm: { max: "768px" }
+      }
     },
   },
   plugins: [],
