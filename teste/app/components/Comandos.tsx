@@ -28,9 +28,6 @@ export const Comandos = () => {
       setOpenModal(!openModal);
     };
     
-    const toggleDelete = () =>{
-        setDeleteModal(!deleteModal)
-    }
 
     const clientRegister = async (data:clientData) =>{
         console.log("teste")
@@ -85,7 +82,7 @@ export const Comandos = () => {
                 valor={cobranca.valor}
                 status={cobranca.status}
                 descricao={cobranca.descricao}
-                id={cobranca.cliente_id}
+                id={cobranca.id}
                 />
         </li>
         );
