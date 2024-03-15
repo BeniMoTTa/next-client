@@ -12,12 +12,14 @@ import { clientData } from '../schemas/client.schema';
 import { cobrancaFullData } from '../schemas/cobranca.schema';
 import { CardCommands } from './CardCommands';
 import { DeleteModal } from './modal/DeleteModal';
+import { Empty } from './Empty';
 
 
 
   
 
 export const Comandos = () => {
+  const [isEmpty, setIsEmpty] = useState(false)
     const [openModal, setOpenModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -27,8 +29,6 @@ export const Comandos = () => {
   
       setOpenModal(!openModal);
     };
-    
-
     const clientRegister = async (data:clientData) =>{
         console.log("teste")
       try{
@@ -37,6 +37,7 @@ export const Comandos = () => {
           await api.post("/api/cliente", data);
       } catch (error) {
           console.log(error)
+          
       } finally{
           setLoading(false);
       }
@@ -54,7 +55,7 @@ export const Comandos = () => {
 
         } catch (error) {
           console.log(error);
-          
+          setIsEmpty(true)
         }
       }
     })();
@@ -72,8 +73,9 @@ export const Comandos = () => {
                 <CgAdd className='text-2xl'/>
             </button>
         </div>
-        
-        <ul className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 px-5 flex-wrap'>
+        {isEmpty ? (
+      <Empty />
+    ) : (         <ul className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 px-5 flex-wrap'>
         {cobranca.map((cobranca, index) =>{
                 return(
             <li className='my-2' key={index}>
@@ -91,6 +93,7 @@ export const Comandos = () => {
            
     })}       
         </ul>
+)}
 
         {openModal && (
           <ModalClienteCreate toggleModal={toggleModal} clientRegister={clientRegister} />

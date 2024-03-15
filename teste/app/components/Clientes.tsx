@@ -10,16 +10,13 @@ export const Clientes = () => {
     const [client, setClient] = useState<clientData[]>([])
     useEffect(() => {
       (async () => {
-       
          {
           try {
-            
             const { data } = await api.get("/api/clientes");
             setClient(data)
-  
           } catch (error) {
             console.log(error);
-            
+            setIsEmpty(true)
           }
         }
       })();
@@ -31,25 +28,23 @@ export const Clientes = () => {
         <h3 className='text-4xl'>Clientes</h3>
         </div>
         {isEmpty ? (
-        <Empty /> 
-      ) : (
-        <ul className='mt-8 px-5'>
-            {client.map((cliente, index) =>{
-                return(
-            <li className='my-2' key={index}>
-            <Card 
-      nome={cliente.nome}
-      cpf={cliente.cpf}
-      email={cliente.email}
-      endereco={cliente.endereco}/>
-        </li>
-        );
-            })}
-
-          
-           
-        </ul>
-      )}
+      <Empty />
+    ) : (
+      <ul className="mt-8 px-5">
+        {client.map((cliente, index) => {
+          return (
+            <li className="my-2" key={index}>
+              <Card
+                nome={cliente.nome}
+                cpf={cliente.cpf}
+                email={cliente.email}
+                endereco={cliente.endereco}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    )}
     </section >
   )
 }

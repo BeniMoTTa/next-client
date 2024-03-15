@@ -18,7 +18,7 @@ export const Whatsapp = () => {
     if (!valorMensagem.trim()) return; 
 
     const novaMensagem = {
-      remetente: 'Você', 
+      remetente: 'Prins', 
       conteudo: valorMensagem,
       timestamp: new Date().toLocaleString(), 
     };
