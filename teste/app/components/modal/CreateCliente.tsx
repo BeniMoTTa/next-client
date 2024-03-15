@@ -33,7 +33,7 @@ const ModalClienteCreate = ({toggleModal, clientRegister}: ModalClienteProps) =>
 
   return (
     <Modal toggleModal={toggleModal}>
-      <div className="bg-white  w-screen max-w-[530px] h-full rounded-2xl p-[25px] flex-col overflow-auto pb-[100px] relative">
+      <div className="bg-white w-screen max-w-[530px] h-fit rounded-2xl px-7 flex-col py-7 relative">
         <h3 className="text-grey1 font-lexend text-[18px] mb-[30px]">
           Criar cliente
         </h3>
@@ -71,8 +71,9 @@ const ModalClienteCreate = ({toggleModal, clientRegister}: ModalClienteProps) =>
             register={register("endereco")}
           />
           </div>
-        <button>Enviar</button>
-    
+          <div className="flex w-full justify-center mt-4">
+        <button className="w-32 flex justify-center rounded items-center text-xl font-semibold shadow-black shadow-md text-white bg-red-400  h-12">Enviar</button>
+        </div>
         </form>
         <button
           className="absolute top-[22px] right-[22px] text-whiteFixed "

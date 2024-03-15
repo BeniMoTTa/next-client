@@ -11,7 +11,7 @@ interface TextAreaProps {
 export const TextArea = ({ valorMensagem, setValorMensagem , enviar}:TextAreaProps) => {
 
   return (
-    <div className='bg-green-900 h-[25%] w-full rounded-b-xl'>
+    <div className='bg-blue-800 h-[150px] w-full rounded-b-xl'>
       <div className='h-5/6 flex pl-4 pt-4'>
         <textarea
           name="message"
